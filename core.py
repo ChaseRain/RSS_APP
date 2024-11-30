@@ -1,5 +1,6 @@
 import feedparser
 import ollama
+import os
 
 
 from lxml import etree
@@ -33,15 +34,13 @@ def get_content_from_feed(feed_url="https://www.zhihu.com/rss"):
 
 
 def create_docs_vector(docs):
-    # 手动加载模型并设置为 CPU
-    model_name = "~/huggingface/bge-m3"
+    # 展开 ~ 为绝对路径
+    model_name = os.path.expanduser("~/huggingface/bge-m3")
 
     # 基于 embeddings，为 docs 创建向量
     embeddings = HuggingFaceEmbeddings(model_name=model_name, encode_kwargs={'normalize_embeddings': True})
     vector_store = FAISS.from_documents(docs, embeddings)
     return vector_store
-
-
 
 
 def rag_chain(question, vector_store, model='qwen', threshold=0.3):
