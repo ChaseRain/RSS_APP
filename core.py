@@ -34,7 +34,7 @@ def get_content_from_feed(feed_url="https://www.zhihu.com/rss"):
 
 def create_docs_vector(docs):
     # 手动加载模型并设置为 CPU
-    model_name = "/Users/linlixin/project/gpt/mini/rss_app/bge-m3"
+    model_name = "~/huggingface/bge-m3"
 
     # 基于 embeddings，为 docs 创建向量
     embeddings = HuggingFaceEmbeddings(model_name=model_name, encode_kwargs={'normalize_embeddings': True})
