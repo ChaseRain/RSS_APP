@@ -1,1 +1,4 @@
 bge-m3/
+.vscode/
+.gradio/
+__pycache__/
