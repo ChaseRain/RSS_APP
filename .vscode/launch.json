@@ -1,0 +1,27 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "name": "Python: Current File (Chrome)",
+        "type": "debugpy",
+        "request": "launch",
+        "program": "${file}",
+        "console": "integratedTerminal",
+        "env": {
+          "PYTHONPATH": "${workspaceFolder}"
+        },
+        "justMyCode": false
+      },
+      {
+        "name": "Launch Chrome with Python",
+        "type": "chrome",
+        "request": "launch",
+        "url": "http://127.0.0.1:7860",   // 在此设置你希望调试的本地应用地址
+        "webRoot": "${workspaceFolder}",
+        "sourceMapPathOverrides": {
+          "webpack:///*": "${webRoot}/*"
+        }
+      }
+    ]
+  }
+  
